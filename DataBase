@@ -1,0 +1,18 @@
+Apa Itu Database Dan Komponen Utamanya
+
++++++++++++++++++++++++++++++++++++++++++++
+
+Database adalah kumpulan terstruktur dari data yang disimpan secara elektronik. Dalam konteks aplikasi web dan pengembangan perangkat lunak, database digunakan untuk menyimpan, mengelola, dan mengorganisir data yang digunakan oleh sistem.
+
+Komponen utama dari sebuah database adalah sebagai berikut:
+
+Tabel: Tabel adalah unit dasar penyimpanan data dalam database. Tabel terdiri dari baris dan kolom, yang mewakili catatan dan atribut dari data yang disimpan. Setiap tabel memiliki nama unik dan setiap kolom memiliki tipe data yang berbeda, seperti teks, angka, tanggal, atau boolean.
+Record: Record merupakan satu baris dalam tabel yang berisi data yang saling terkait. Setiap record biasanya mewakili entitas tunggal atau objek dalam domain aplikasi.
+Kolom: Kolom adalah atribut atau bidang dalam tabel yang mewakili jenis data tertentu. Misalnya, dalam tabel pengguna, kolom dapat berisi nama, alamat email, dan kata sandi.
+Kunci: Kunci digunakan untuk mengidentifikasi secara unik setiap record dalam tabel. Kunci utama (primary key) adalah kunci yang unik untuk setiap record dan biasanya digunakan untuk mengidentifikasi record secara eksklusif. Kunci asing (foreign key) digunakan untuk menghubungkan dua tabel berbeda dengan merujuk pada kunci utama di tabel lain.
+Query: Query digunakan untuk mengambil, memperbarui, atau menghapus data dari database. Query adalah pernyataan yang ditulis dalam bahasa query database, seperti SQL (Structured Query Language).
+Indeks: Indeks digunakan untuk meningkatkan kinerja pengambilan data dari database dengan membuat struktur data tambahan yang mempercepat pencarian berdasarkan nilai kolom tertentu.
+Relasi: Relasi adalah hubungan antara tabel dalam database. Relasi dapat dibangun menggunakan kunci asing yang menghubungkan kolom dalam satu tabel dengan kolom dalam tabel lain. Relasi ini memungkinkan penggabungan data dari beberapa tabel melalui operasi penggabungan (join).
+Komponen ini bekerja bersama-sama untuk membentuk struktur dan fungsionalitas database yang memungkinkan penyimpanan dan manipulasi data secara efisien.
+
+=============================================
