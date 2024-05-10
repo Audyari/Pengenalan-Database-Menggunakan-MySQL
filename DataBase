@@ -1,30 +1,10 @@
-DDL DML DCL Apa Itu
+Cara Install Mysql
 
-===========================
+======================
 
-DDL, DML, dan DCL adalah singkatan untuk tiga kelompok perintah dalam bahasa SQL (Structured Query Language) yang digunakan untuk mengelola database. Berikut adalah penjelasan singkat tentang masing-masing:
+download XAMPP :
 
-1. Data Definition Language (DDL):
-DDL digunakan untuk mendefinisikan struktur database dan objek-objeknya. Perintah DDL digunakan untuk membuat, mengubah, dan menghapus tabel, indeks, tampilan (view), dan objek-objek database lainnya. Beberapa perintah DDL umum meliputi CREATE, ALTER, dan DROP. Contoh perintah DDL:
+1. pilih shell di xampp
+2. ketik mysql -u root
 
-  * CREATE TABLE: Membuat tabel baru dalam database.
-  * ALTER TABLE: Mengubah struktur tabel, seperti menambahkan kolom atau mengubah tipe data kolom.
-  * DROP TABLE: Menghapus tabel dari database.
-
-2. Data Manipulation Language (DML):
-DML digunakan untuk mengelola data di dalam tabel. Perintah DML digunakan untuk mengambil, memasukkan, memperbarui, dan menghapus data dalam tabel. Beberapa perintah DML umum meliputi SELECT, INSERT, UPDATE, dan DELETE. Contoh perintah DML:
-
-  * SELECT: Mengambil data dari satu atau beberapa tabel.
-  * INSERT INTO: Memasukkan data baru ke dalam tabel.
-  * UPDATE: Memperbarui data yang ada dalam tabel.
-  * DELETE FROM: Menghapus data dari tabel.
-
-3. Data Control Language (DCL):
-DCL digunakan untuk mengendalikan hak akses dan izin terhadap objek-objek database. Perintah DCL digunakan untuk memberikan izin, mencabut izin, dan mengatur tingkat akses pengguna terhadap database. Beberapa perintah DCL umum meliputi GRANT dan REVOKE. Contoh perintah DCL:
-
-  * GRANT: Memberikan izin kepada pengguna untuk melakukan operasi tertentu pada objek database.
-  * REVOKE: Mencabut izin yang diberikan sebelumnya dari pengguna.
-
-Pemisahan perintah-perintah ini memungkinkan pengelolaan dan penggunaan yang terpisah antara definisi struktur database, manipulasi data, dan pengendalian hak akses dalam lingkungan database.
-
-=========================================================================================================================
+=============================
