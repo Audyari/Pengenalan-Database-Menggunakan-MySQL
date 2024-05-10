@@ -1,10 +1,11 @@
-Cara Install Mysql
+Membuat Menampilkan, Menghapus dan Mengaktifkan Database
 
-======================
+===========================================================
 
-download XAMPP :
+1. masuk ke sql : mysql -u root
+2. CREATE DATABASE nama_database;
+3. SHOW DATABASES;
+4. DROP DATABASE nama_database;
+5. USE nama_database;
 
-1. pilih shell di xampp
-2. ketik mysql -u root
-
-=============================
+====================================================
