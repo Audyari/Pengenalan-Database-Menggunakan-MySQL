@@ -1,13 +1,17 @@
-mengubah kolom yang sudah ada menjadi AUTO_INCREMENT TAMBAHAN
+Membuat Foreign Key
 
-=======================================================
+=============================
+1. CREATE TABLE kelas (
+    id INT PRIMARY KEY,
+    nama_kelas VARCHAR(50)
+    );
 
-1. ALTER TABLE mahasiswa DROP PRIMARY KEY;
+2. CREATE TABLE siswa (
+    id INT PRIMARY KEY,
+    nama_siswa VARCHAR(50),
+    id_kelas INT,
+    FOREIGN KEY (id_kelas) REFERENCES kelas(id)
+  );
 
-2. ALTER TABLE mahasiswa MODIFY COLUMN id INT NOT NULL;
 
-3. ALTER TABLE mahasiswa MODIFY COLUMN id INT AUTO_INCREMENT;
-
-4. ALTER TABLE mahasiswa ADD PRIMARY KEY (id);
-
-====================================================
+=====================================================
