@@ -1,15 +1,13 @@
-Membuat, Menambahkan Dan Menghapus Unique Key
+mengubah kolom yang sudah ada menjadi AUTO_INCREMENT TAMBAHAN
 
-=============================================
+=======================================================
 
-1. CREATE TABLE mahasiswa (
-      id INT,
-      nama VARCHAR(50) UNIQUE,
-      usia INT
-    );
+1. ALTER TABLE mahasiswa DROP PRIMARY KEY;
 
-2. ALTER TABLE mahasiswa ADD UNIQUE (usia);
+2. ALTER TABLE mahasiswa MODIFY COLUMN id INT NOT NULL;
 
-3. ALTER TABLE mahasiswa DROP INDEX nama;
+3. ALTER TABLE mahasiswa MODIFY COLUMN id INT AUTO_INCREMENT;
 
-================================================
+4. ALTER TABLE mahasiswa ADD PRIMARY KEY (id);
+
+====================================================
