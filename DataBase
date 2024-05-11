@@ -1,12 +1,17 @@
-Menambahkan dan Mengurangi Kolom pada Tabel
+Membuat, Menambahkan Dan Menghapus Primary Key
+
+=================================================
+
+1. CREATE TABLE mahasiswa (
+    id INT PRIMARY KEY,
+    nama VARCHAR(50),
+    usia INT
+    );
+
+2. ALTER TABLE mahasiswa DROP PRIMARY KEY;
+
+3. DESCRIBE mahasiswa;
+
+4. ALTER TABLE mahasiswa ADD PRIMARY KEY(nama);
 
 ====================================================
-
-1. show DATABASES;
-2. USE nama_database;
-3. SHOW TABLES;
-4. DESCRIBE students;
-5. ALTER TABLE students ADD COLUMN email VARCHAR(100);
-6. ALTER TABLE students DROP COLUMN email;
-
-=======================================================
