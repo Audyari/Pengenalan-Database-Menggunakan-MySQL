@@ -1,22 +1,12 @@
-Membuat, Menampilkan, Menghapus dan Mengubah Nama Tabel
+Menambahkan dan Mengurangi Kolom pada Tabel
+
+====================================================
+
+1. show DATABASES;
+2. USE nama_database;
+3. SHOW TABLES;
+4. DESCRIBE students;
+5. ALTER TABLE students ADD COLUMN email VARCHAR(100);
+6. ALTER TABLE students DROP COLUMN email;
 
 =======================================================
-
-1. masuk ke sql : mysql -u root
-2.CREATE DATABASE nama_database;
-3. SHOW DATABASES;
-4. USE nama_database;
-5.   CREATE TABLE mahasiswa (
-     id INT AUTO_INCREMENT,
-     nama VARCHAR(50),
-     usia INT,
-     PRIMARY KEY (id)
-    );
-6. SHOW TABLES;
-7. DESCRIBE mahasiswa;
-8. DROP TABLE mahasiswa;
-9. ALTER TABLE mahasiswa RENAME TO students;
-
-
-
-=====================================================
