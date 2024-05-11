@@ -1,17 +1,15 @@
-Membuat, Menambahkan Dan Menghapus Primary Key
+Membuat, Menambahkan Dan Menghapus Unique Key
 
-=================================================
+=============================================
 
 1. CREATE TABLE mahasiswa (
-    id INT PRIMARY KEY,
-    nama VARCHAR(50),
-    usia INT
+      id INT,
+      nama VARCHAR(50) UNIQUE,
+      usia INT
     );
 
-2. ALTER TABLE mahasiswa DROP PRIMARY KEY;
+2. ALTER TABLE mahasiswa ADD UNIQUE (usia);
 
-3. DESCRIBE mahasiswa;
+3. ALTER TABLE mahasiswa DROP INDEX nama;
 
-4. ALTER TABLE mahasiswa ADD PRIMARY KEY(nama);
-
-====================================================
+================================================
