@@ -1,74 +1,33 @@
-1. Primary Key:
-       * Primary Key adalah satu atau lebih kolom yang secara unik mengidentifikasi setiap baris (record) dalam suatu tabel.
-       * Setiap tabel harus memiliki satu Primary Key.
-       * Primary Key tidak boleh berisi nilai null.
-       * Contoh: Pada tabel Pelanggan, ID_Pelanggan bisa menjadi Primary Key.
+Import File SQL di MySQL dari Data Generator
 
-2. Unique Key:
-       * Unique Key adalah satu atau lebih kolom yang secara unik mengidentifikasi setiap baris (record) dalam suatu tabel.
-       * Setiap tabel bisa memiliki satu atau lebih Unique Key.
-       * Nilai pada kolom Unique Key harus unik, tetapi boleh berisi nilai null.
-       * Contoh: Pada tabel Pelanggan, selain ID_Pelanggan (Primary Key), Email dan NoTelp bisa menjadi Unique Key.
+gunakan link web untuk menggeneret data : 
 
-3. Foreign Key:
-       * Foreign Key adalah satu atau lebih kolom dalam suatu tabel yang merujuk ke Primary Key atau Unique Key pada tabel lain.
-       * Foreign Key digunakan untuk membuat hubungan (relasi) antara tabel-tabel dalam database.
-       * Nilai pada kolom Foreign Key harus ada di tabel yang direferensikan, atau boleh bernilai null.
-       * Contoh: Pada tabel Penjualan, ID_Pelanggan bisa menjadi Foreign Key yang merujuk ke Primary Key ID_Pelanggan pada tabel Pelanggan.
+1. https://mockaroo.com/
 
-Singkatnya:
+liat pake SELECT * FROM customers;
 
-Primary Key: Mengidentifikasi baris secara unik dalam suatu tabel.
-Unique Key: Mengidentifikasi baris secara unik dalam suatu tabel (selain Primary Key).
-Foreign Key: Menghubungkan baris di satu tabel dengan baris di tabel lain.
+2. gunakan "source"
 
+3. contoh : MariaDB [nama_database]> source C:\Users\itadmin\Downloads\customers.sql
 
 =========================
 
+set foreign_key_checks = 0;
+truncate table customers;
+set foreign_key_checks = 0;
 
+==========================
 
-Menghapus Data Yang Ada - Delete
+1. set foreign_key_checks = 0;
+Perintah ini menonaktifkan pemeriksaan batasan (constraint) foreign key di database.
+Ini dilakukan untuk memungkinkan tabel "customers" untuk dikosongkan dengan perintah TRUNCATE tanpa terkendala oleh batasan foreign key yang mungkin ada.
 
+2. truncate table customers;
+Perintah TRUNCATE TABLE digunakan untuk menghapus seluruh isi (data) dari tabel "customers" secara cepat.
+TRUNCATE bekerja lebih cepat daripada DELETE karena tidak mencatat setiap penghapusan dalam log transaksi.
 
-1. SHOW TABLES;
-2. DESCRIBE kelas;
-3. SELECT * FROM customers;
+3. set foreign_key_checks = 0;
+Perintah ini kembali mengaktifkan pemeriksaan batasan (constraint) foreign key di database.
+Langkah ini diperlukan agar sistem dapat kembali memverifikasi batasan foreign key setelah tabel "customers" dikosongkan.
 
-
-Menambah Data Pada Tabel : SELECT * FROM products;
-
-INSERT INTO products (name, price)
-VALUES ('Laptop', 999.99),
-       ('Smartphone', 499.99),
-       ('Headphones', 79.99);
-
-
-===============================
-
-COMMAND YG DI PAKE : 
-
-1. Memilih semua kolom dari tabel: 
-
-       SELECT * FROM products;
-
-=====================================
-
-Menghapus satu baris:
-
-DELETE FROM products 
-WHERE ID = 2;
-
-===============================
-
-Menghapus beberapa baris:
-
-DELETE FROM products
-WHERE ID IN (1, 3, 5);
-
-=============================
-
-Menghapus semua baris:
-
-DELETE FROM products;
-
-=============================
+===========================================
