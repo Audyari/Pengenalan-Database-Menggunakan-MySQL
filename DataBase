@@ -1,36 +1,51 @@
-Mengurutkan Baris Data Dengan Order By
+Mengelompokkan Baris Data Dengan Group By
+
+1. show tables;
+2. DESCRIBE products;
 
 
 
 liat pake SELECT * FROM customers;
 
-1. Menampilkan data pelanggan dengan urutan abjad berdasarkan nama:
+1. Menghitung jumlah pesanan per pelanggan:
 
-SELECT * FROM customers ORDER BY name ASC;
+SELECT customer_id, COUNT(*) AS total_orders 
+FROM orders
+GROUP BY customer_id;
 
 ========================
 
-2. Menampilkan data produk dengan urutan menurun berdasarkan harga:
+2. Menghitung total penjualan per kategori produk:
 
-SELECT * FROM products ORDER BY price DESC;
+SELECT category, SUM(price * quantity) AS total_sales
+FROM products p
+JOIN orders o ON p.id = o.product_id
+GROUP BY category;
 
 =======================
 
-3. Menampilkan data pesanan dengan urutan menaik berdasarkan tanggal pemesanan:
+3. Menghitung rata-rata harga per kategori produk:
 
-SELECT * FROM orders ORDER BY order_date ASC;
+SELECT category, AVG(price) AS avg_price
+FROM products
+GROUP BY category;
 
 =========================
 
-4. Menampilkan data pelanggan dengan urutan menurun berdasarkan ID, kemudian urutan menaik berdasarkan nama:
+4. Menghitung jumlah pelanggan per kota:
 
-SELECT * FROM customers ORDER BY id DESC, name ASC;
+SELECT city, COUNT(*) AS num_customers
+FROM customers
+GROUP BY city;
 
 =====================================
 
-5. Menampilkan 10 data produk dengan urutan menurun berdasarkan harga:
+5. Menghitung total penjualan per bulan:
 
-SELECT * FROM products ORDER BY price DESC LIMIT 10;
+SELECT DATE_FORMAT(order_date, '%Y-%m') AS month, SUM(total_amount) AS total_sales
+FROM orders
+GROUP BY month
+ORDER BY month ASC;
 
 ===================================
 
