@@ -1,4 +1,4 @@
-Mengelompokkan Baris Data Dengan Group By
+Menggabungkan Tabel Secara Langsung - Cross Straight
 
 1. show tables;
 2. DESCRIBE products;
@@ -7,49 +7,22 @@ Mengelompokkan Baris Data Dengan Group By
 
 liat pake SELECT * FROM customers;
 
-1. Menghitung jumlah pesanan per pelanggan:
+SELECT *
+FROM tabel1
+CROSS JOIN tabel2;
 
-SELECT customer_id, COUNT(*) AS total_orders 
-FROM orders
-GROUP BY customer_id;
+=============================
 
-========================
+SELECT *
+FROM tabel1, tabel2;
 
-2. Menghitung total penjualan per kategori produk:
+========================================
 
-SELECT category, SUM(price * quantity) AS total_sales
-FROM products p
-JOIN orders o ON p.id = o.product_id
-GROUP BY category;
+menggabungkan dua tabel dengan menambahkan kondisi tertentu. :
 
-=======================
-
-3. Menghitung rata-rata harga per kategori produk:
-
-SELECT category, AVG(price) AS avg_price
-FROM products
-GROUP BY category;
-
-=========================
-
-4. Menghitung jumlah pelanggan per kota:
-
-SELECT city, COUNT(*) AS num_customers
-FROM customers
-GROUP BY city;
+SELECT *
+FROM tabel1
+INNER JOIN tabel2
+ON tabel1.kolom_kunci = tabel2.kolom_kunci;
 
 =====================================
-
-5. Menghitung total penjualan per bulan:
-
-SELECT DATE_FORMAT(order_date, '%Y-%m') AS month, SUM(total_amount) AS total_sales
-FROM orders
-GROUP BY month
-ORDER BY month ASC;
-
-===================================
-
-
-
-
-
