@@ -1,4 +1,4 @@
-Mendapatkan Data Dari Tabel - Select
+Mengubah Data Yang Ada - Update
 
 
 1. SHOW TABLES;
@@ -24,29 +24,37 @@ COMMAND YG DI PAKE :
 
 =====================================
 
-2. Memilih kolom tertentu dari tabel:
+Mengubah satu kolom:
 
-       SELECT name, price FROM products;
+UPDATE products 
+SET price = 599.99
+WHERE ID = 2;
 
-3. Memfilter data dengan klausa WHERE:
+===============================
 
-       SELECT * FROM products WHERE price > 500;
+Mengubah beberapa kolom:
 
-4. Mengurutkan data dengan klausa ORDER BY:
+UPDATE products
+SET name = 'New Laptop', price = 1099.99
+WHERE ID = 1;
 
-       SELECT * FROM products ORDER BY price ASC;
+================================
 
-5. Membatasi jumlah baris yang ditampilkan dengan klausa LIMIT:
+Menggunakan subquery dalam klausa SET:
+ini kalo ada 2 tabel ya tabel produk sama competitor_products
 
-       SELECT * FROM products LIMIT 3;
+UPDATE products
+SET price = (SELECT price FROM competitor_products WHERE id = products.ID)
+WHERE ID IN (1, 2, 3);
 
-6. Menggabungkan beberapa kriteria dengan operator logika (AND, OR, NOT):
 
-       SELECT * FROM products WHERE price > 100 AND price < 1000;
+=============================
 
-7. menggunakan fungsi agregat seperti COUNT, SUM, AVG, MIN, dan MAX dalam perintah SELECT. Contoh:
+Menggunakan fungsi dalam klausa SET:
 
-SELECT COUNT(*) AS total_products FROM products;
-SELECT AVG(price) AS average_price FROM products;
+UPDATE products
+SET price = price * 1.1
+WHERE price < 100;
 
-=================================
+
+==================================
