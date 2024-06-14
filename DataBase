@@ -1,3 +1,32 @@
+1. Primary Key:
+       * Primary Key adalah satu atau lebih kolom yang secara unik mengidentifikasi setiap baris (record) dalam suatu tabel.
+       * Setiap tabel harus memiliki satu Primary Key.
+       * Primary Key tidak boleh berisi nilai null.
+       * Contoh: Pada tabel Pelanggan, ID_Pelanggan bisa menjadi Primary Key.
+
+2. Unique Key:
+       * Unique Key adalah satu atau lebih kolom yang secara unik mengidentifikasi setiap baris (record) dalam suatu tabel.
+       * Setiap tabel bisa memiliki satu atau lebih Unique Key.
+       * Nilai pada kolom Unique Key harus unik, tetapi boleh berisi nilai null.
+       * Contoh: Pada tabel Pelanggan, selain ID_Pelanggan (Primary Key), Email dan NoTelp bisa menjadi Unique Key.
+
+3. Foreign Key:
+       * Foreign Key adalah satu atau lebih kolom dalam suatu tabel yang merujuk ke Primary Key atau Unique Key pada tabel lain.
+       * Foreign Key digunakan untuk membuat hubungan (relasi) antara tabel-tabel dalam database.
+       * Nilai pada kolom Foreign Key harus ada di tabel yang direferensikan, atau boleh bernilai null.
+       * Contoh: Pada tabel Penjualan, ID_Pelanggan bisa menjadi Foreign Key yang merujuk ke Primary Key ID_Pelanggan pada tabel Pelanggan.
+
+Singkatnya:
+
+Primary Key: Mengidentifikasi baris secara unik dalam suatu tabel.
+Unique Key: Mengidentifikasi baris secara unik dalam suatu tabel (selain Primary Key).
+Foreign Key: Menghubungkan baris di satu tabel dengan baris di tabel lain.
+
+
+=========================
+
+
+
 Menghapus Data Yang Ada - Delete
 
 
