@@ -1,44 +1,40 @@
-Pencarian Data Dengan Kondisi Tertentu
+Mengurutkan Baris Data Dengan Order By
 
 
 
 liat pake SELECT * FROM customers;
 
-1. Mencari pelanggan dengan nama "John Doe":
+1. Menampilkan data pelanggan dengan urutan abjad berdasarkan nama:
 
-SELECT * FROM customers WHERE name = 'John Doe';
+SELECT * FROM customers ORDER BY name ASC;
 
 ========================
 
-2. Mencari produk dengan harga di atas 100:
+2. Menampilkan data produk dengan urutan menurun berdasarkan harga:
 
-SELECT * FROM products WHERE price > 100;
+SELECT * FROM products ORDER BY price DESC;
 
 =======================
 
-3. Mencari pesanan yang dibuat pada tanggal tertentu:
+3. Menampilkan data pesanan dengan urutan menaik berdasarkan tanggal pemesanan:
 
-SELECT * FROM orders WHERE order_date = '2023-05-15';
+SELECT * FROM orders ORDER BY order_date ASC;
 
 =========================
 
-4. Mencari pelanggan yang berasal dari kota "New York":
+4. Menampilkan data pelanggan dengan urutan menurun berdasarkan ID, kemudian urutan menaik berdasarkan nama:
 
-SELECT * FROM customers WHERE city = 'New York';
+SELECT * FROM customers ORDER BY id DESC, name ASC;
 
 =====================================
 
-5. Mencari produk dengan kategori "Elektronik" dan harga di bawah 500:
+5. Menampilkan 10 data produk dengan urutan menurun berdasarkan harga:
 
-SELECT * FROM products WHERE category = 'Elektronik' AND price < 500;
+SELECT * FROM products ORDER BY price DESC LIMIT 10;
 
 ===================================
 
-6. Mencari pesanan yang dibuat oleh pelanggan dengan ID tertentu:
 
-SELECT * FROM orders WHERE customer_id = 123;
-
-=====================================
 
 
 
