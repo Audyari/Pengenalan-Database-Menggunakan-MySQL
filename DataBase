@@ -1,29 +1,10 @@
-Query Menambah Data Pada Tabel - Insert
+Mendapatkan Data Dari Tabel - Select
 
 
 1. SHOW TABLES;
 2. DESCRIBE kelas;
 3. SELECT * FROM customers;
 
-========================
-
-cara update table customers : DESCRIBE kelas;
-
-ALTER TABLE customers
-ADD COLUMN new_city VARCHAR(20) NOT NULL,
-ADD COLUMN new_country VARCHAR(20) NOT NULL;
-
-=========================
-
-
-Menambah Data Pada Tabel : SELECT * FROM customers;
-
-INSERT INTO customers (name, city, country)
-VALUES ('John Doe', 'New York', 'USA'),
-       ('Jane Smith', 'London', 'UK'),
-       ('Michael Johnson', 'Paris', 'France');
-
-===============================
 
 Menambah Data Pada Tabel : SELECT * FROM products;
 
@@ -34,3 +15,38 @@ VALUES ('Laptop', 999.99),
 
 
 ===============================
+
+COMMAND YG DI PAKE : 
+
+1. Memilih semua kolom dari tabel: 
+
+       SELECT * FROM products;
+
+=====================================
+
+2. Memilih kolom tertentu dari tabel:
+
+       SELECT name, price FROM products;
+
+3. Memfilter data dengan klausa WHERE:
+
+       SELECT * FROM products WHERE price > 500;
+
+4. Mengurutkan data dengan klausa ORDER BY:
+
+       SELECT * FROM products ORDER BY price ASC;
+
+5. Membatasi jumlah baris yang ditampilkan dengan klausa LIMIT:
+
+       SELECT * FROM products LIMIT 3;
+
+6. Menggabungkan beberapa kriteria dengan operator logika (AND, OR, NOT):
+
+       SELECT * FROM products WHERE price > 100 AND price < 1000;
+
+7. menggunakan fungsi agregat seperti COUNT, SUM, AVG, MIN, dan MAX dalam perintah SELECT. Contoh:
+
+SELECT COUNT(*) AS total_products FROM products;
+SELECT AVG(price) AS average_price FROM products;
+
+=================================
