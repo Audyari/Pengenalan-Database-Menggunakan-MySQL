@@ -1,33 +1,32 @@
-Import File SQL di MySQL dari Data Generator
+Menampilkan Data Dengan Limit Tertentu
 
-gunakan link web untuk menggeneret data : 
 
-1. https://mockaroo.com/
 
 liat pake SELECT * FROM customers;
 
-2. gunakan "source"
+1. Menampilkan 10 data teratas dari tabel "customers":
 
-3. contoh : MariaDB [nama_database]> source C:\Users\itadmin\Downloads\customers.sql
+SELECT * FROM customers LIMIT 10;
+
+========================
+
+2. Menampilkan 5 data teratas mulai dari baris ke-3:
+
+SELECT * FROM customers LIMIT 2, 5;
+
+=======================
+
+3. Menampilkan 20 data teratas dari tabel "orders" dengan urutan menaik berdasarkan tanggal:
+
+SELECT * FROM orders ORDER BY order_date ASC LIMIT 20;
 
 =========================
 
-set foreign_key_checks = 0;
-truncate table customers;
-set foreign_key_checks = 0;
+4. Menampilkan 10 data teratas dari tabel "products" dengan urutan menurun berdasarkan harga:
 
-==========================
+SELECT * FROM products ORDER BY price DESC LIMIT 10;
 
-1. set foreign_key_checks = 0;
-Perintah ini menonaktifkan pemeriksaan batasan (constraint) foreign key di database.
-Ini dilakukan untuk memungkinkan tabel "customers" untuk dikosongkan dengan perintah TRUNCATE tanpa terkendala oleh batasan foreign key yang mungkin ada.
+=====================================
 
-2. truncate table customers;
-Perintah TRUNCATE TABLE digunakan untuk menghapus seluruh isi (data) dari tabel "customers" secara cepat.
-TRUNCATE bekerja lebih cepat daripada DELETE karena tidak mencatat setiap penghapusan dalam log transaksi.
 
-3. set foreign_key_checks = 0;
-Perintah ini kembali mengaktifkan pemeriksaan batasan (constraint) foreign key di database.
-Langkah ini diperlukan agar sistem dapat kembali memverifikasi batasan foreign key setelah tabel "customers" dikosongkan.
 
-===========================================
