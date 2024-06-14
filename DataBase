@@ -1,4 +1,4 @@
-Menggabungkan Tabel Secara Langsung - Cross Straight
+Relasi Tabel Menggunakan Inner Join
 
 1. show tables;
 2. DESCRIBE products;
@@ -7,22 +7,83 @@ Menggabungkan Tabel Secara Langsung - Cross Straight
 
 liat pake SELECT * FROM customers;
 
-SELECT *
-FROM tabel1
-CROSS JOIN tabel2;
+contoh buat 4 table :
 
-=============================
+CREATE TABLE Produk (
+  id_produk INT PRIMARY KEY,
+  nama_produk VARCHAR(50),
+  harga DECIMAL(10,2),
+  id_kategori INT
+);
 
-SELECT *
-FROM tabel1, tabel2;
+CREATE TABLE Kategori (
+  id_kategori INT PRIMARY KEY,
+  nama_kategori VARCHAR(50)
+);
 
-========================================
+CREATE TABLE Stok (
+  id_stok INT PRIMARY KEY,
+  id_produk INT,
+  jumlah INT,
+  FOREIGN KEY (id_produk) REFERENCES Produk(id_produk)
+);
 
-menggabungkan dua tabel dengan menambahkan kondisi tertentu. :
+CREATE TABLE Penjualan (
+  id_penjualan INT PRIMARY KEY,
+  id_produk INT,
+  jumlah INT,
+  tanggal_penjualan DATE,
+  FOREIGN KEY (id_produk) REFERENCES Produk(id_produk)
+);
 
-SELECT *
-FROM tabel1
-INNER JOIN tabel2
-ON tabel1.kolom_kunci = tabel2.kolom_kunci;
+
 
 =====================================
+
+buat data table nya : 
+
+INSERT INTO Produk (id_produk, nama_produk, harga, id_kategori) VALUES
+  (1, 'Buku', 20000, 2),
+  (2, 'Pensil', 5000, 1),
+  (3, 'Penggaris', 7000, 1),
+  (4, 'Mouse', 50000, 3),
+  (5, 'Keyboard', 100000, 3);
+
+INSERT INTO Kategori (id_kategori, nama_kategori) VALUES
+  (1, 'Alat Tulis'),
+  (2, 'Buku'),
+  (3, 'Elektronik');
+
+INSERT INTO Stok (id_stok, id_produk, jumlah) VALUES
+  (1, 1, 50),
+  (2, 2, 100),
+  (3, 3, 30),
+  (4, 4, 20),
+  (5, 5, 25);
+
+
+INSERT INTO Penjualan (id_penjualan, id_produk, jumlah, tanggal_penjualan) VALUES
+  (1, 1, 5, '2023-05-01'),
+  (2, 2, 10, '2023-05-02'),
+  (3, 1, 3, '2023-05-05'),
+  (4, 3, 2, '2023-05-10'),
+  (5, 4, 1, '2023-05-12'),
+  (6, 5, 2, '2023-05-15');
+
+
+================================
+
+command contoh Inner Join NYA :
+
+SELECT 
+  Produk.nama_produk,
+  Kategori.nama_kategori,
+  Stok.jumlah,
+  Penjualan.jumlah AS jumlah_terjual,
+  Penjualan.tanggal_penjualan
+FROM Produk
+INNER JOIN Kategori ON Produk.id_kategori = Kategori.id_kategori
+INNER JOIN Stok ON Produk.id_produk = Stok.id_produk
+INNER JOIN Penjualan ON Produk.id_produk = Penjualan.id_produk;
+
+===================================
