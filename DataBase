@@ -1,19 +1,56 @@
-Membuat Foreign Key
+Mempersiapkan Tabel Project
 
-Foreign key adalah sebuah kolom atau sekumpulan kolom dalam satu tabel yang mereferensikan primary key pada tabel lain.
+Baik, berikut adalah beberapa perintah (command) MySQL yang penting dan wajib diketahui:
+
+1. mysql -u root
+2. SHOW DATABASES;
+3. USE nama_database;
+4. SHOW TABLES;
+5. DESCRIBE kelas;
+6. SHOW create table customers;
+7. SHOW INDEX FROM items;
+
+diagram entitas relasional (Entity-Relationship Diagram atau ERD).
+ERD adalah diagram yang menggambarkan hubungan antar entitas dalam suatu sistem database.
+
+
 
 =============================
-1. CREATE TABLE kelas (
-    id INT PRIMARY KEY,
-    nama_kelas VARCHAR(50)
-    );
 
-2. CREATE TABLE siswa (
-    id INT PRIMARY KEY,
-    nama_siswa VARCHAR(50),
-    id_kelas INT,
-    FOREIGN KEY (id_kelas) REFERENCES kelas(id)
-  );
+1. CREATE TABLE `customers` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `name` char(50) NOT NULL,
+  PRIMARY KEY (`ID`)
+);
+
+2. CREATE TABLE Products (
+  ID int NOT NULL AUTO_INCREMENT,
+  name char(50) NOT NULL,
+  price decimal(10,2) NOT NULL,
+  PRIMARY KEY (ID)
+);
+
+3. CREATE TABLE Orders (
+  ID int(11) NOT NULL AUTO_INCREMENT,
+  customer_id int(11) NOT NULL,
+  date timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (ID),
+  key `CUSTOMER_ID` (`CUSTOMER_ID`),
+  constraint `ORDER_IBFK_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`ID`)
+);
 
 
-=====================================================
+4. CREATE TABLE Items (
+  ID int(11) NOT NULL AUTO_INCREMENT,
+  order_id int(11) NOT NULL,
+  product_id int(11) NOT NULL,
+  qty int NOT NULL,
+  PRIMARY KEY (ID),
+  KEY `fk_order_id` (`order_id`),
+  KEY `fk_product_id` (`product_id`),
+  CONSTRAINT `fk_order_id` FOREIGN KEY (`order_id`) REFERENCES `Orders`(`ID`),
+  CONSTRAINT `fk_product_id` FOREIGN KEY (`product_id`) REFERENCES `Products`(`ID`)
+);
+
+
+=======================================
