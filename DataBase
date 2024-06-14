@@ -1,5 +1,7 @@
 Membuat Foreign Key
 
+Foreign key adalah sebuah kolom atau sekumpulan kolom dalam satu tabel yang mereferensikan primary key pada tabel lain.
+
 =============================
 1. CREATE TABLE kelas (
     id INT PRIMARY KEY,
