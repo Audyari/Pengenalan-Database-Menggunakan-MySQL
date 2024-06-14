@@ -1,56 +1,36 @@
-Mempersiapkan Tabel Project
-
-Baik, berikut adalah beberapa perintah (command) MySQL yang penting dan wajib diketahui:
-
-1. mysql -u root
-2. SHOW DATABASES;
-3. USE nama_database;
-4. SHOW TABLES;
-5. DESCRIBE kelas;
-6. SHOW create table customers;
-7. SHOW INDEX FROM items;
-
-diagram entitas relasional (Entity-Relationship Diagram atau ERD).
-ERD adalah diagram yang menggambarkan hubungan antar entitas dalam suatu sistem database.
+Query Menambah Data Pada Tabel - Insert
 
 
+1. SHOW TABLES;
+2. DESCRIBE kelas;
+3. SELECT * FROM customers;
 
-=============================
+========================
 
-1. CREATE TABLE `customers` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `name` char(50) NOT NULL,
-  PRIMARY KEY (`ID`)
-);
+cara update table customers : DESCRIBE kelas;
 
-2. CREATE TABLE Products (
-  ID int NOT NULL AUTO_INCREMENT,
-  name char(50) NOT NULL,
-  price decimal(10,2) NOT NULL,
-  PRIMARY KEY (ID)
-);
+ALTER TABLE customers
+ADD COLUMN new_city VARCHAR(20) NOT NULL,
+ADD COLUMN new_country VARCHAR(20) NOT NULL;
 
-3. CREATE TABLE Orders (
-  ID int(11) NOT NULL AUTO_INCREMENT,
-  customer_id int(11) NOT NULL,
-  date timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (ID),
-  key `CUSTOMER_ID` (`CUSTOMER_ID`),
-  constraint `ORDER_IBFK_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`ID`)
-);
+=========================
 
 
-4. CREATE TABLE Items (
-  ID int(11) NOT NULL AUTO_INCREMENT,
-  order_id int(11) NOT NULL,
-  product_id int(11) NOT NULL,
-  qty int NOT NULL,
-  PRIMARY KEY (ID),
-  KEY `fk_order_id` (`order_id`),
-  KEY `fk_product_id` (`product_id`),
-  CONSTRAINT `fk_order_id` FOREIGN KEY (`order_id`) REFERENCES `Orders`(`ID`),
-  CONSTRAINT `fk_product_id` FOREIGN KEY (`product_id`) REFERENCES `Products`(`ID`)
-);
+Menambah Data Pada Tabel : SELECT * FROM customers;
+
+INSERT INTO customers (name, city, country)
+VALUES ('John Doe', 'New York', 'USA'),
+       ('Jane Smith', 'London', 'UK'),
+       ('Michael Johnson', 'Paris', 'France');
+
+===============================
+
+Menambah Data Pada Tabel : SELECT * FROM products;
+
+INSERT INTO products (name, price)
+VALUES ('Laptop', 999.99),
+       ('Smartphone', 499.99),
+       ('Headphones', 79.99);
 
 
-=======================================
+===============================
