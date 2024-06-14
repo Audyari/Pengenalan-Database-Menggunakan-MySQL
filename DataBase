@@ -1,4 +1,4 @@
-Relasi Tabel Menggunakan Inner Join
+Relasi Tabel Dengan Left Dan Right Join
 
 1. show tables;
 2. DESCRIBE products;
@@ -73,17 +73,24 @@ INSERT INTO Penjualan (id_penjualan, id_produk, jumlah, tanggal_penjualan) VALUE
 
 ================================
 
-command contoh Inner Join NYA :
+command contoh Relasi Tabel Dengan Left Dan Right Join
 
-SELECT 
-  Produk.nama_produk,
-  Kategori.nama_kategori,
-  Stok.jumlah,
-  Penjualan.jumlah AS jumlah_terjual,
-  Penjualan.tanggal_penjualan
+LEFT JOIN:
+LEFT JOIN menggabungkan dua tabel dan menampilkan semua baris dari tabel di sebelah kiri (tabel utama) dan hanya baris yang cocok dari tabel di sebelah kanan.
+Jika tidak ada kecocokan, maka nilai NULL akan dimasukkan untuk kolom-kolom dari tabel di sebelah kanan.
+
+SELECT Produk.nama_produk, Kategori.nama_kategori
 FROM Produk
-INNER JOIN Kategori ON Produk.id_kategori = Kategori.id_kategori
-INNER JOIN Stok ON Produk.id_produk = Stok.id_produk
-INNER JOIN Penjualan ON Produk.id_produk = Penjualan.id_produk;
+LEFT JOIN Kategori ON Produk.id_kategori = Kategori.id_kategori;
 
-===================================
+====================================
+
+RIGHT JOIN:
+RIGHT JOIN menggabungkan dua tabel dan menampilkan semua baris dari tabel di sebelah kanan (tabel yang direlasikan) dan hanya baris yang cocok dari tabel di sebelah kiri.
+Jika tidak ada kecocokan, maka nilai NULL akan dimasukkan untuk kolom-kolom dari tabel di sebelah kiri.
+
+SELECT Produk.nama_produk, Kategori.nama_kategori
+FROM Produk
+RIGHT JOIN Kategori ON Produk.id_kategori = Kategori.id_kategori;
+
+===========================================
